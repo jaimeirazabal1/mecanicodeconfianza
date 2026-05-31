@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Mis Contrataciones{% endblock %}
+{% block content %}
+<div class="bookings-page" style="max-width:900px;margin:0 auto;padding:2rem 1rem">
+    <h1>{% if user and user.role == 'mechanic' %}Servicios Contratados{% else %}Mis Contrataciones{% endif %}</h1>
+    <div class="bookings-filters" style="display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap">
+        <button class="btn btn-sm btn-outline active-filter" data-filter="all" onclick="filterBookings('all')">Todas</button>
+        <button class="btn btn-sm btn-outline" data-filter="pending" onclick="filterBookings('pending')">Pendientes</button>
+        <button class="btn btn-sm btn-outline" data-filter="accepted" onclick="filterBookings('accepted')">Aceptadas</button>
+        <button class="btn btn-sm btn-outline" data-filter="in_progress" onclick="filterBookings('in_progress')">En Progreso</button>
+        <button class="btn btn-sm btn-outline" data-filter="completed" onclick="filterBookings('completed')">Completadas</button>
+        <button class="btn btn-sm btn-outline" data-filter="cancelled" onclick="filterBookings('cancelled')">Canceladas</button>
+    </div>
+    <div id="bookingsList"><div class="loading">Cargando contrataciones...</div></div>
+</div>
+{% endblock %}

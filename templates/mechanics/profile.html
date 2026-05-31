@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Mi Perfil de Mecánico{% endblock %}
+{% block content %}
+<div class="profile-page">
+    <h1>Mi Perfil de Mecánico</h1>
+
+    <div id="profileView" class="profile-section">
+        <div class="loading">Cargando perfil...</div>
+    </div>
+
+    <div class="profile-tabs">
+        <button class="tab-btn active" onclick="switchTab('reviews')">Reseñas</button>
+        <button class="tab-btn" onclick="switchTab('services')">Servicios</button>
+        <button class="tab-btn" onclick="switchTab('tutorials')">Mis Tutoriales</button>
+        <button class="tab-btn" onclick="switchTab('photos')">Fotos</button>
+    </div>
+
+    <div id="tabContent" class="tab-content">
+        <div id="reviewsTab" class="tab-panel active">
+            <h3>Reseñas de clientes</h3>
+            <div id="myReviews"></div>
+        </div>
+        <div id="servicesTab" class="tab-panel">
+            <h3>Mis Servicios</h3>
+            <button class="btn btn-primary" onclick="showCreateService()">+ Nuevo Servicio</button>
+            <div id="myServices" style="margin-top:1rem"></div>
+        </div>
+        <div id="tutorialsTab" class="tab-panel">
+            <h3>Mis Tutoriales</h3>
+            <button class="btn btn-primary" onclick="showCreateTutorial()">Nuevo Tutorial</button>
+            <div id="myTutorials"></div>
+        </div>
+        <div id="photosTab" class="tab-panel">
+            <h3>Mis Trabajos</h3>
+            <input type="file" id="photoUpload" accept="image/*" onchange="uploadPhoto(event)" class="form-input">
+            <div id="myPhotos"></div>
+        </div>
+    </div>
+</div>
+
+<div id="tutorialModal" class="modal hidden">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <h2>Crear Tutorial</h2>
+        <form id="tutorialForm">
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" id="tutTitle" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea id="tutDesc" class="form-input" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Contenido (HTML básico o texto)</label>
+                <textarea id="tutContent" class="form-input" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <label>URL del video (YouTube)</label>
+                <input type="url" id="tutVideo" class="form-input" placeholder="https://youtube.com/watch?v=...">
+            </div>
+            <div class="form-group">
+                <label>Categoría</label>
+                <select id="tutCategory" class="form-input">
+                    <option value="Motor">Motor</option>
+                    <option value="Frenos">Frenos</option>
+                    <option value="Eléctrico">Eléctrico</option>
+                    <option value="Suspensión">Suspensión</option>
+                    <option value="Transmisión">Transmisión</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Dificultad</label>
+                <select id="tutDifficulty" class="form-input">
+                    <option value="Principiante">Principiante</option>
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="Avanzado">Avanzado</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Publicar Tutorial</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

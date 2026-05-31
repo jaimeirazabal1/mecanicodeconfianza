@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Buscar Mecánicos{% endblock %}
+{% block content %}
+<div class="search-page">
+    <div class="search-header">
+        <h1>Buscar Mecánicos</h1>
+        <form id="searchForm" class="search-form search-form-wide">
+            <input type="text" id="searchQuery" placeholder="¿Qué necesitas? (frenos, motor, clutch...)" class="search-input">
+            <input type="text" id="searchLocation" placeholder="Ubicación" class="search-input search-input-sm">
+            <select id="searchSort" class="search-input search-input-sm">
+                <option value="rating">Mejor puntuados</option>
+                <option value="experience">Más experiencia</option>
+                <option value="newest">Más recientes</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+
+    <div class="search-filters">
+        <div class="filter-group">
+            <label class="filter-checkbox">
+                <input type="checkbox" id="filterAvailable"> Solo disponibles
+            </label>
+        </div>
+        <div id="specialtyFilters" class="filter-group">
+        </div>
+    </div>
+
+    <div id="results" class="mechanics-grid">
+        <div class="loading">Buscando mecánicos...</div>
+    </div>
+
+    <div id="pagination" class="pagination"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MecaDeConfianza - {% block title %}Encuentra Mecánicos Confiables{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">MecaDeConfianza</span>
+            </a>
+            <div class="nav-links">
+                <a href="/buscar" class="nav-link">Buscar Mecánicos</a>
+                <a href="/tutoriales" class="nav-link">Tutoriales</a>
+                {% if user %}
+                    {% if user.role == 'mechanic' %}
+                        <a href="/perfil" class="nav-link">Mi Perfil</a>
+                    {% endif %}
+                    <a href="/contrataciones" class="nav-link">Contrataciones</a>
+                    <a href="/mensajes" class="nav-link">Mensajes</a>
+                    <div class="nav-user">
+                        <span class="nav-user-name">{{ user.name }}</span>
+                        <a href="/logout" class="btn btn-sm btn-outline">Salir</a>
+                    </div>
+                {% else %}
+                    <a href="/login" class="btn btn-sm btn-outline">Ingresar</a>
+                    <a href="/register" class="btn btn-sm btn-primary">Registrarse</a>
+                {% endif %}
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 MecaDeConfianza. Conectando clientes con mecánicos confiables.</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

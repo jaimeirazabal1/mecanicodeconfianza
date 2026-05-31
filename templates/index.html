@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Encuentra Mecánicos Confiables{% endblock %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>El mecánico que tu auto necesita, <span class="highlight">con la confianza que mereces</span></h1>
+        <p class="hero-subtitle">Encuentra mecánicos certificados, revisa sus puntuaciones, lee opiniones reales y contrata con tranquilidad.</p>
+        <div class="hero-search">
+            <form action="/buscar" method="get" class="search-form">
+                <input type="text" name="q" placeholder="¿Qué servicio necesitas? (ej: frenos, motor, eléctrico)" class="search-input">
+                <input type="text" name="location" placeholder="Ubicación" class="search-input search-input-sm">
+                <button type="submit" class="btn btn-primary btn-lg">Buscar</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <div class="section-title">
+        <h2>¿Cómo funciona?</h2>
+    </div>
+    <div class="steps">
+        <div class="step">
+            <div class="step-icon">🔍</div>
+            <h3>Busca</h3>
+            <p>Encuentra mecánicos cerca de ti, filtra por especialidad, ubicación y puntuación.</p>
+        </div>
+        <div class="step">
+            <div class="step-icon">⭐</div>
+            <h3>Compara</h3>
+            <p>Revisa perfiles, lee opiniones de otros clientes y elige al mejor para tu vehículo.</p>
+        </div>
+        <div class="step">
+            <div class="step-icon">💬</div>
+            <h3>Contacta</h3>
+            <p>Envíales un mensaje directo, consulta precios y coordina tu cita sin compromiso.</p>
+        </div>
+        <div class="step">
+            <div class="step-icon">🔧</div>
+            <h3>Califica</h3>
+            <p>Después del servicio, deja tu opinión para ayudar a otros a tomar la mejor decisión.</p>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="section-title">
+        <h2>Por qué MecaDeConfianza</h2>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>Mecánicos Verificados</h3>
+            <p>Perfiles con información real, trabajos mostrados y años de experiencia.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Puntuaciones Reales</h3>
+            <p>Opiniones auténticas de clientes reales. Sin reseñas falsas, sin engaños.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3>Tutoriales Gratuitos</h3>
+            <p>Aprende mantenimiento básico con tutoriales creados por mecánicos expertos.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💪</div>
+            <h3>Reconocimiento al Buen Trabajo</h3>
+            <p>Los mejores mecánicos ganan visibilidad. El buen trabajo siempre se recompensa.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>¿Eres mecánico?</h2>
+        <p>Crea tu perfil gratis, muestra tus trabajos, recibe calificaciones y consigue más clientes.</p>
+        <a href="/register" class="btn btn-primary btn-lg">Crear perfil gratuito</a>
+    </div>
+</section>
+{% endblock %}

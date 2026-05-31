@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Tutoriales de Mecánica{% endblock %}
+{% block content %}
+<div class="tutorials-page">
+    <div class="section-title">
+        <h1>Tutoriales de Mecánica</h1>
+        <p>Aprende con tutoriales creados por mecánicos profesionales</p>
+    </div>
+
+    <div class="tutorial-filters">
+        <select id="tutCategoryFilter" class="form-input" onchange="loadTutorials()">
+            <option value="">Todas las categorías</option>
+            <option value="Motor">Motor</option>
+            <option value="Frenos">Frenos</option>
+            <option value="Eléctrico">Eléctrico</option>
+            <option value="Suspensión">Suspensión</option>
+            <option value="Transmisión">Transmisión</option>
+            <option value="Mantenimiento">Mantenimiento</option>
+        </select>
+    </div>
+
+    <div id="tutorialsList" class="tutorials-grid">
+        <div class="loading">Cargando tutoriales...</div>
+    </div>
+</div>
+{% endblock %}

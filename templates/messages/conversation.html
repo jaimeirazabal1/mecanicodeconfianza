@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Conversación{% endblock %}
+{% block content %}
+<div class="conversation-page">
+    <a href="/mensajes" class="btn btn-sm btn-outline">&larr; Volver</a>
+    <h2 id="conversationWith">Conversación</h2>
+    <div id="messagesContainer" class="messages-container">
+        <div class="loading">Cargando mensajes...</div>
+    </div>
+    <form id="messageForm" class="message-form">
+        <textarea id="messageInput" class="form-input" rows="2" placeholder="Escribe un mensaje..." required></textarea>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
