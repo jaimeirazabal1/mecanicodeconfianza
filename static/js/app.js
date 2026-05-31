@@ -432,11 +432,11 @@ async function deleteTutorial(id) {
 }
 
 function showCreateTutorial() {
-  document.getElementById('tutorialModal').classList.remove('hidden');
+  document.getElementById('tutorialModal').classList.add('open');
 }
 
 function closeModal() {
-  document.getElementById('tutorialModal')?.classList.add('hidden');
+  document.getElementById('tutorialModal')?.classList.remove('open');
 }
 
 const tutorialForm = document.getElementById('tutorialForm');
@@ -657,7 +657,7 @@ function showHireModal(serviceId, title, price) {
   if (existing) existing.remove();
   const modal = document.createElement('div');
   modal.id = 'hireModal';
-  modal.className = 'modal';
+  modal.className = 'modal open';
   modal.innerHTML = `
     <div class="modal-content">
       <span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span>
@@ -813,7 +813,7 @@ function showCreateService() {
   if (existing) existing.remove();
   const modal = document.createElement('div');
   modal.id = 'serviceModal';
-  modal.className = 'modal';
+  modal.className = 'modal open';
   modal.innerHTML = `
     <div class="modal-content">
       <span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span>

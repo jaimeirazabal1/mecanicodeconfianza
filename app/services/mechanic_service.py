@@ -1,4 +1,4 @@
-from sqlalchemy import select, func, and_
+from sqlalchemy import select, func, and_, or_
 from sqlalchemy.orm import selectinload
 from app.database import async_session
 from app.models.user import User
@@ -28,10 +28,22 @@ async def search_mechanics(
             conditions.append(MechanicProfile.available == True)
 
         if query:
-            conditions.append(
-                MechanicProfile.business_name.ilike(f"%{query}%") |
-                MechanicProfile.description.ilike(f"%{query}%")
+            q = query.strip().lower()
+            stmt = stmt.outerjoin(User, MechanicProfile.user_id == User.id)
+            def unaccent(col):
+                for a, b in [('é','e'),('É','e'),('è','e'),('È','e'),('ë','e'),('Ë','e'),
+                             ('í','i'),('Í','i'),('ì','i'),('Ì','i'),('ï','i'),('Ï','i'),
+                             ('ó','o'),('Ó','o'),('ò','o'),('Ò','o'),('ö','o'),('Ö','o'),
+                             ('ú','u'),('Ú','u'),('ù','u'),('Ù','u'),('ü','u'),('Ü','u'),
+                             ('ñ','n'),('Ñ','n'),('ç','c'),('Ç','c')]:
+                    col = func.replace(col, a, b)
+                return col
+            name_cond = or_(
+                unaccent(func.lower(MechanicProfile.business_name)).ilike(f"%{q}%"),
+                unaccent(func.lower(MechanicProfile.description)).ilike(f"%{q}%"),
+                unaccent(func.lower(User.name)).ilike(f"%{q}%"),
             )
+            conditions.append(name_cond)
 
         if location:
             conditions.append(MechanicProfile.location.ilike(f"%{location}%"))
