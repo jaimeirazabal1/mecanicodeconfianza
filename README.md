@@ -49,7 +49,24 @@ Todos los usuarios creados por `seed.py` usan la contraseña `123456`.
 - fernando@email.com
 - diego@email.com
 
-**Clientes:** puedes registrarte libremente o usar cualquiera de los clientes creados automáticamente con las reseñas.
+**Clientes (con reseñas ya creadas):**
+- client0_0@email.com
+- client0_1@email.com
+- client0_2@email.com
+- client1_0@email.com
+- client1_1@email.com
+- client1_2@email.com
+- client2_0@email.com
+- client2_1@email.com
+- client2_2@email.com
+- client3_0@email.com
+- client3_1@email.com
+- client3_2@email.com
+- client4_0@email.com
+- client4_1@email.com
+- client4_2@email.com
+
+También puedes crear un cliente nuevo desde `/register`.
 
 ## Estructura del proyecto
 
