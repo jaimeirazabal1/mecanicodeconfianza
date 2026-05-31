@@ -37,6 +37,8 @@ Abrir `http://localhost:8000` en el navegador.
 
 Todos los usuarios creados por `seed.py` usan la contraseña `123456`.
 
+> **Email:** `carlos@email.com` / **Password:** `123456`
+
 **Mecánicos:**
 - carlos@email.com
 - maria@email.com
